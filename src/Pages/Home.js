@@ -41,7 +41,7 @@ class Home extends Component {
     formData.append('file', this.state.file, this.state.file.name);
 
     axios
-      .post('http://137.116.224.12:8002/amr', formData, {
+      .post('http://amr.azurewebsites.net/amr', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -50,7 +50,7 @@ class Home extends Component {
         this.setState({
           response: {
             ...res.data,
-            img: 'http://137.116.224.12:8002/output.jpg',
+            img: `http://amr.azurewebsites.net/output.jpg? + ${new Date().getTime()}`,
           },
         });
       })
